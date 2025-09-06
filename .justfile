@@ -16,7 +16,7 @@ alias c := config
 
 # sync dotfiles with Github
 sync:
-  cp ~/.justfile ~/Desktop/dotfiles/
-  cp ~/.zshrc ~/Desktop/dotfiles/
+  @cp ~/.justfile ~/Desktop/dotfiles/
+  @cp ~/.zshrc ~/Desktop/dotfiles/
 
 alias s := sync
