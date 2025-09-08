@@ -1,7 +1,20 @@
 # Amazon Q pre block. Keep at the top of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 
-fastfetch
+# iTerm2 integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Starship
+eval "$(starship init zsh)"
+
+# Zoxide
+eval "$(zoxide init zsh)"
+
+# Zsh syntax highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Zsh autosuggestions
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -43,14 +56,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # deno
 . "/Users/yuzhiqiang/.deno/env"
 
-# Zoxide
-eval "$(zoxide init zsh)"
-
 # Docker completions
 fpath=(/Users/yuzhiqiang/.docker/completions $fpath)
-
-# iTerm2 integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # Aliases
 alias cat="bat"
@@ -66,24 +73,7 @@ alias la='eza -a'
 alias tree='eza --tree'
 alias curl='curlie'
 alias sm='surrealdb-migrations'
-alias msf="/opt/metasploit-framework/bin/msfconsole"
-alias quickwit="~/quickwit/quickwit"
-alias grafana-run="~/grafana/run"
-alias grafana-exit="~/grafana/exit"
-
-# Zsh syntax highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Zsh autosuggestions
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-eval "$(starship init zsh)"
-
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/yuzhiqiang/.lmstudio/bin"
-# End of LM Studio CLI section
+alias cert='openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes'
 
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"

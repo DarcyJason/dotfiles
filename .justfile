@@ -20,3 +20,10 @@ sync:
   @cp ~/.zshrc ~/Desktop/dotfiles/
 
 alias s := sync
+
+# Start surrealdb
+start-surreal:
+  @-surreal start --bind 127.0.0.1:10086 rocksdb://~/surrealdb
+
+alias ss := start-surreal
+
