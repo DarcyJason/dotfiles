@@ -18,6 +18,7 @@ alias c := config
 sync:
   @cp ~/.justfile ~/Desktop/dotfiles/
   @cp ~/.zshrc ~/Desktop/dotfiles/
+  @cp -r ~/.config/nvim/ ~/Desktop/dotfiles/.config/nvim/
 
 alias s := sync
 
@@ -27,3 +28,14 @@ start-surreal:
 
 alias ss := start-surreal
 
+# Cargo fmt
+rsfmt:
+  @cargo fmt --all
+
+alias rf := rsfmt
+
+# Git remote url set up
+git-remote address:
+  @git remote add origin "{{address}}"
+
+alias gr := git-remote
